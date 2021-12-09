@@ -5,7 +5,7 @@ import ListBreadcrumbs from './layout/ListBreadcrumbs';
 import {useGetTopics} from '../../../hooks/query';
 import {useEffect, useState} from 'react';
 
-import {HOME_TOPIC, OFFSET_INCREMENT} from '../../../constants';
+import {HOME_TOPIC, TOPIC_MAX_RESULTS} from '../../../constants';
 
 import './topic.list.css';
 
@@ -17,12 +17,12 @@ const TopicList = () => {
 
     const {getTopics, data: topicsData, loading: topicsLoading, error: topicsError} = useGetTopics();
 
-    const fetchTopic = (name, offset = OFFSET_INCREMENT) => {
+    const fetchTopic = (name) => {
         setActiveTopic(name);
         getTopics({
             variables: {
-                name: name,
-                last: offset,
+                name,
+                first: TOPIC_MAX_RESULTS,
             },
         });
     };
