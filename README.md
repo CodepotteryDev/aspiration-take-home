@@ -36,6 +36,8 @@ Also when creating your token be sure to select the following scopes in order fo
     read:public_key
     read:gpg_key
 
+#### Scope selection screen
+
 ![scope selection screen](https://docs.github.com/assets/images/help/settings/token_scopes.gif)
 
 Instructions on how to create a token can be found [here](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
