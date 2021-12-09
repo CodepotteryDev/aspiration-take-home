@@ -10,9 +10,17 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+If the port is not available you will be asked if you want to run the project in an available one.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+Before running your app open the .env file of this repo and supply your own [GitHub](https://github.com/) personal token. 
+
+    # Supply your own git token
+    REACT_APP_GITH_TOKEN=YOUR_TOKEN_HERE
+
+Instructions on how to create a token can be found [here](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ### `yarn test`
 
