@@ -17,12 +17,12 @@ const TopicList = () => {
 
     const {getTopics, data: topicsData, loading: topicsLoading, error: topicsError} = useGetTopics();
 
-    const fetchTopic = (name) => {
+    const fetchTopic = (name, offset = TOPIC_MAX_RESULTS) => {
         setActiveTopic(name);
         getTopics({
             variables: {
                 name,
-                first: TOPIC_MAX_RESULTS,
+                first: offset,
             },
         });
     };
