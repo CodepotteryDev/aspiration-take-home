@@ -1,7 +1,7 @@
 import '../topic.list.css';
 
 const TopicListBody = (props) => {
-  const { topics, isTopicListLoading, onTopicSelection, defaultTopic } = props;
+  const { topics, isTopicListLoading, error, onTopicSelection, onRetry, defaultTopic } = props;
 
   return (
     <table className="topic-list">
@@ -38,14 +38,31 @@ const TopicListBody = (props) => {
               </tr>
             ))
           : null}
-        {isTopicListLoading ? (
+        {isTopicListLoading && !error ? (
           <tr data-test-id="loading-message-container">
             <td className="topic-list-message" colSpan={3}>
               Loading...
             </td>
           </tr>
         ) : null}
-        {!isTopicListLoading && !topics.length ? (
+        {!isTopicListLoading && error ? (
+            <tr data-test-id="loading-message-container">
+                <td className="topic-list-message" colSpan={3}>
+                    <div>
+                        There was an error loading related topics.
+                        <button
+                            aria-label="Return to home"
+                            className="return-home-button"
+                            data-test-id="return-home-button"
+                            onClick={() => onRetry()}
+                        >
+                            RETRY
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        ) : null}
+        {!isTopicListLoading && !topics.length && !error ? (
           <tr data-test-id="empty-topic-message-container">
             <td className="topic-list-message" colSpan={3}>
               <div>
