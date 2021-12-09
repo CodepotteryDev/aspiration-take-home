@@ -4,20 +4,22 @@ import {useEffect, useMemo} from "react";
 import {toast} from "react-hot-toast";
 
 const GET_TOPICS = gql`
-    query($name: String!, $last: Int!) {
-        topic(name: $name) {
-            repositories(last: $last) {
-                nodes {
-                    name
-                    stargazerCount
-                }
+    query($name: String!, $first: Int!) {
+        topic(name:$name) {
+            id
+            name
+            stargazerCount
+            relatedTopics(first: $first) {
+                id
+                name
+                stargazerCount
             }
         }
     }
 `;
 
 const topicMapper = (rawData) => {
-    return rawData?.topic?.repositories?.nodes.map((topic) => ({
+    return rawData?.topic?.relatedTopics?.map((topic) => ({
         name: topic.name,
         stars: topic.stargazerCount,
     })).sort((a, b) => a.name.localeCompare(b.name)) || [];
