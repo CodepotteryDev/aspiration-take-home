@@ -13,7 +13,7 @@ const TopicList = () => {
     const [items, setItems] = useState([]);
     const [activeTopic, setActiveTopic] = useState('');
     const [breadCrumbs, setBreadCrumbs] = useState([]);
-    const [, setCurrListOffset] = useState(OFFSET_INCREMENT);
+    const [, setCurrListOffset] = useState(TOPIC_MAX_RESULTS);
 
     const {getTopics, data: topicsData, loading: topicsLoading, error: topicsError} = useGetTopics();
 
@@ -39,8 +39,8 @@ const TopicList = () => {
 
     const handleShowMoreItems = (reset) => {
         setCurrListOffset((prevState) => {
-            const offset = reset ? OFFSET_INCREMENT : prevState + OFFSET_INCREMENT;
-            fetchTopic(activeTopic, offset);
+            const offset = reset ? TOPIC_MAX_RESULTS : prevState + TOPIC_MAX_RESULTS;
+            fetchTopic(activeTopic, offset >= 10 ? 10 : offset);
             return offset;
         });
     };
