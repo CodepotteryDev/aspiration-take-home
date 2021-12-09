@@ -4,6 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+Before running this scripts be sure to run:
+
+### `yarn install`
+
 In the project directory, you can run:
 
 ### `yarn start`
@@ -19,6 +23,20 @@ Before running your app open the .env file of this repo and supply your own [Git
 
     # Supply your own git token
     REACT_APP_GITH_TOKEN=YOUR_TOKEN_HERE
+
+Also when creating your token be sure to select the following scopes in order for the app to work correctly, it might throw 502 errors if the incorrect scopes are selected.
+
+    user
+    public_repo
+    repo
+    repo_deployment
+    repo:status
+    read:repo_hook
+    read:org
+    read:public_key
+    read:gpg_key
+
+![scope selection screen](https://docs.github.com/assets/images/help/settings/token_scopes.gif)
 
 Instructions on how to create a token can be found [here](https://docs.github.com/en/enterprise-server@3.1/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
