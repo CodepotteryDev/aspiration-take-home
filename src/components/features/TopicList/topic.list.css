@@ -1,0 +1,130 @@
+/* General */
+
+button {
+    color: #fff;
+    cursor: pointer;
+    background-color: #000;
+    border-radius: 0.4rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+}
+
+.main-container {
+    padding: 0.5rem;
+}
+
+.topic-title {
+    font-size: 2rem;
+}
+
+.return-home-button {
+    max-width: 10rem;
+    margin-top: 2rem;
+}
+
+/* Breadcrumbs */
+
+.breadcrumb-tracker,
+.breadcrumb-tracker li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.breadcrumb-tracker {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.breadcrumb-tracker li + li {
+    margin-left: 0.5rem;
+}
+
+.breadcrumb-tracker li + li:before {
+    content: '/ ';
+}
+
+/* Topic list */
+
+.topic-list {
+    width: 100%;
+}
+
+.topic-list button {
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.topic-list {
+    border-collapse: collapse;
+    font-size: 1.2rem;
+}
+
+.topic-col-stars,
+.topic-col-action {
+    text-align: center;
+}
+
+
+.topic-col-repo {
+    text-align: left;
+}
+
+.topic-col-stars {
+    font-weight: 700;
+}
+
+.topic-list thead {
+    background-color: #c9c9c9;
+}
+
+.topic-list thead th {
+    padding: 0.5rem;
+}
+
+.topic-row {
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.topic-row td {
+    display: table-cell;
+    padding: 0.5rem;
+}
+
+.topic-row + .topic-row td {
+    border-top: 1px solid #c9c9c9;
+}
+
+.topic-row:hover {
+    background-color: #ffdd00;
+}
+
+.topic-list-message {
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.topic-list-message > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-actions-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4rem;
+}
+
+.list-actions-container button {
+    margin-top: 1rem;
+}
+
+.list-actions-container button + button {
+    margin-left: 0.5rem;
+}
+
