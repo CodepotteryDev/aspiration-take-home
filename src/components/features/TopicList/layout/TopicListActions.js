@@ -1,5 +1,3 @@
-import { OFFSET_INCREMENT } from '../../../../constants';
-
 const TopicListActions = (props) => {
   const { showListActions, onShowMoreItems } = props;
 
@@ -9,12 +7,12 @@ const TopicListActions = (props) => {
       data-test-id="list-actions-container"
     >
       <button
-        aria-label={`Show ${OFFSET_INCREMENT} more items`}
+        aria-label={`Show more items`}
         className="show-more-button"
         data-test-id="show-more-button"
         onClick={() => onShowMoreItems()}
       >
-        {`SHOW ${OFFSET_INCREMENT} MORE`}
+        {`SHOW MORE`}
       </button>
       <button
         aria-label="Reset number of topics"
