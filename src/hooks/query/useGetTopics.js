@@ -1,5 +1,5 @@
-import { useLazyQuery } from '@apollo/react-hooks';
-import { gql } from '@apollo/client';
+import {useLazyQuery} from '@apollo/react-hooks';
+import {gql} from '@apollo/client';
 import {useEffect, useMemo} from "react";
 import {toast} from "react-hot-toast";
 
@@ -24,7 +24,7 @@ const topicMapper = (rawData) => {
 }
 
 export const useGetTopics = () => {
-    const [getTopics, { loading, error, data: rawData }] = useLazyQuery(GET_TOPICS);
+    const [getTopics, {loading, error, data: rawData}] = useLazyQuery(GET_TOPICS, {fetchPolicy: 'cache-first'});
 
     const mappedData = useMemo(() => topicMapper(rawData), [rawData]);
 
@@ -34,5 +34,5 @@ export const useGetTopics = () => {
         }
     }, [error]);
 
-    return { getTopics, loading, error, data: mappedData };
+    return {getTopics, loading, error, data: mappedData};
 };
